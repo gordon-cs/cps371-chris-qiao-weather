@@ -1,7 +1,7 @@
 //modified by Chris Qiao
 angular.module('weather.services', ['ngResource'])
 'use strict';
-
+/*
 var forecastioWeather = ['$q', '$resource', '$http', 'FORECASTIO_KEY',
   function($q, $resource, $http, FORECASTIO_KEY) {
   var url = 'https://api.forecast.io/forecast/' + FORECASTIO_KEY + '/';
@@ -12,7 +12,17 @@ var forecastioWeather = ['$q', '$resource', '$http', 'FORECASTIO_KEY',
     }
   };
 }];
+*/
+var forecastioWeather = ['$q', '$resource', '$http', 'FORECASTIO_KEY',
+  function($q, $resource, $http, FORECASTIO_KEY) {
+  var url = 'http://super-weatherproxy.appspot.com/';
 
+  return {
+    getCurrentWeather: function(lat, lng) {
+      return $http.jsonp(url + lat + ',' + lng + '?callback=JSON_CALLBACK');
+    }
+  };
+}];
 weatherApp.factory('Cities', function() {
 var cities = [
     { id: 0, name: 'Wenham', lat:42.589611 , lgn: -70.819806 },

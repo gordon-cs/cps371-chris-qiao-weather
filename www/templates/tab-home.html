@@ -1,0 +1,36 @@
+<!--author Chris Qiao -->
+<ion-view title="Today" cache-view = "false">
+  <ion-content class="padding">
+    <ion-item>
+    <div class="padding-horizontal">
+    <h1 class ="padding-left"><mydate>{{current.currently.time * 1000 | date:'MMM dd, yyyy'}}</mydate><h1>
+    <h1 class="padding-left"><mydate>{{current.currently.time * 1000 | date:'EEEE'}}</mydate><h1>
+    </div>
+  <div class="row">
+    <div class="col col-67">
+      <h1 class="padding-right" style="text-align:center"><strong>{{city}}</strong></h1>
+      <h1 class="padding-right" style="text-align:center"><strong>{{current.currently.temperature | number:0}} &degF</strong></h1>
+      <h2 class="padding-right" style="text-align:center"><strong>{{current.currently.summary}}</strong></h2>
+    </div>
+    <div class="col">
+      <img src="img\{{current.currently.icon}}.svg">
+    </div>
+  </div>
+    <div class="padding">
+    <p style="text-align:center">Precipitation Probability:  {{current.currently.precipProbability}}%  {{current.currently.precipType}}</p>
+    <p style="text-align:center">Humidity:  {{current.currently.humidity}}</p>
+    <p style="text-align:center">Wind speed:  {{current.currently.windSpeed}}  mph</p>
+    <p style="text-align:center">Visibility: {{current.currently.visibility}} miles</p>
+  </div>
+  <div class="row">
+    <ion-item  class="col", ng-repeat="data in hdata">
+      <img src = "img\{{data.icon}}.svg" style="vertical-align:middle">
+      <h2 style = "text-align:center">{{data.temperature | number:0}} &degF</h2>
+      <h2 style = "text-align:center"><mydate>{{data.time * 1000 | date:'HH'}}:00</mydate><h1>
+
+    </ion-item>
+  </div>
+<p class="padding" style="text-align:center;font-size: 8pt">Powered by The Dark Sky Forecast API<br>https://developer.forecast.io/</p>
+  </ion-content>
+    </ion-content>
+</ion-view>

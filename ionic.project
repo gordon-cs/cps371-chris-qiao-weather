@@ -1,0 +1,8 @@
+{
+  "name": "WeatherApp",
+  "app_id": "",
+  "proxies": [{
+  "path": "/weather-server",
+  "proxyUrl" :"http://super-weatherproxy.appspot.com/"
+  }]
+}

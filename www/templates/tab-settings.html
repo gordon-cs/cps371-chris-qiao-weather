@@ -1,0 +1,10 @@
+<!--author Chris Qiao -->
+<ion-view title="Cities">
+  <ion-content class="has-header">
+        <ion-list ng-repeat="city in cities">
+              <button class="button button-outline button-positive button-full " href="#" ng-click="changeCity('{{city.id}}')">
+                {{city.name}}
+              </button>
+        </ion-list>
+   </ion-content>
+</ion-view>
